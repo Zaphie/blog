@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let posts = [];
-
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true, useUnifiedTopology: true});
+const mongoUrl = process.env.mongoUrl || "mongodb://localhost:27017/blogDB";
+mongoose.connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const postSchema = new mongoose.Schema({
   title :String,

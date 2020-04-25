@@ -18,8 +18,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let posts = [];
-const mongoUrl = process.env.mongoUrl || "mongodb://localhost:27017/blogDB";
+const mongoUrl = process.env.mongoUrl || "mongodb+srv://admin:test123@cluster0-xglba.mongodb.net/blogDB?retryWrites=true&w=majority";
 mongoose.connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+// mongodb://localhost:27017/blogDB
 
 const postSchema = new mongoose.Schema({
   title :String,
@@ -66,8 +67,7 @@ app.post("/compose", function(req, res){
 
   console.log(post.title);
   console.log(post.content);
-  //posts.push(post);
-  res.redirect("/");
+  
 
 });
 

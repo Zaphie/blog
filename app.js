@@ -85,25 +85,12 @@ app.get("/post/:postId", function(req, res){
 
 
 
-// app.get("/post/:postId", function(req, res){
-//   //   const namePostIntoUserURL = _.lowerCase(req.params.topic);
-//   posts.forEach(function(post){
-//     var namePost = _.lowerCase(post.titleOfPost);
-//     if (namePostIntoUserURL=== namePost){
-//       res.render("post",{
-//         nameOfTitlePost: namePostIntoUserURL,
-//         valueOfContentPost: post.contentOfPost
-//       });
-//     }
-//   });
-//
-// });
 
-// let port = process.env.PORT;
-// if ( port == ""){
-//   port= 3000;
-// }
+let port = process.env.PORT;
+if ( port == ""){
+  port= 3000;
+}
 
-app.listen( 3000, function() {
+app.listen( port, function() {
   console.log("Server started on port 3000");
 });
